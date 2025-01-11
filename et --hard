@@ -1,0 +1,26 @@
+[33mcommit 55d04b18930768ff347d4f0faeeb964506f4cc24[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Gab <gabgoesdigital@users.noreply.github.com>
+Date:   Sat Jan 11 18:18:13 2025 +0600
+
+    Add computer choice
+    
+    by console log the function it will randomly log
+    paper scissor or rock.
+
+[33mcommit a3c240d27685aba5ff56fa78ab318e5a2a1a3fa4[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Gab <gabgoesdigital@users.noreply.github.com>
+Date:   Sat Jan 11 17:54:23 2025 +0600
+
+    Link html to js
+
+[33mcommit 293fe6d9698268738b4f2f43d2f15dd3569a9d9a[m
+Author: Gab <gabgoesdigital@users.noreply.github.com>
+Date:   Sat Jan 11 17:50:35 2025 +0600
+
+    create new file for project
+
+[33mcommit 249230bdfb58b55022426b4dad7a49d7eff3ce3c[m
+Author: Gabriele <76270930+gabgoesdigital@users.noreply.github.com>
+Date:   Sat Jan 11 17:45:47 2025 +0600
+
+    Initial commit
