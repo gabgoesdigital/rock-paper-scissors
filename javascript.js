@@ -11,4 +11,16 @@ if (randomNumber === 0) {
         }
 }
 
+function getHumanChoice() {
+    let message = prompt("Choose one between rock,paper,scissors!").toLowerCase();
+    if (message === "rock" || message === "paper" || message === "scissors") {
+        return message; }
+        else {
+            return "Check your Spelling!";
+        }
+   
+}
+
+console.log(getHumanChoice());
+
 
