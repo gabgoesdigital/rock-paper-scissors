@@ -21,6 +21,5 @@ function getHumanChoice() {
    
 }
 
-console.log(getHumanChoice());
 
 
