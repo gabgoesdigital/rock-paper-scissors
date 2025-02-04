@@ -43,9 +43,22 @@ function playRound(humanChoice) {
     <p>Computer score: <strong>${computerScore}</strong></p>
     <hr />
   `;
-  playResultFinal.innerHTML += `
+  playResultFinal.innerHTML = `
   <p>Your Score: <strong>${humanScore}</strong></p>
   <p>Computer Score: <strong>${computerScore}</strong></p>`;
+
+  // Check if anyone reached 5 points
+  if (humanScore === 5 || computerScore === 5) {
+    let winner = humanScore === 5 ? '🎉 You Win! 🎉' : '💀 Computer Wins! 💀';
+
+    playResultFinal.innerHTML += `
+      <p><strong>${winner}</strong></p>
+    `;
+
+    // Reset scores for a new game
+    humanScore = 0;
+    computerScore = 0;
+  }
 }
 
 // Selecting buttons from the DOM
