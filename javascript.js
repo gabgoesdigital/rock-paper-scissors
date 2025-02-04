@@ -1,66 +1,63 @@
+// Function to get computer's choice
 function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random() * 3);
-
-    if (randomNumber === 0) {
-        return "rock";
-    } else if (randomNumber === 1) {
-        return "scissors";
-    } else {
-        return "paper";
-    }
+  let randomNumber = Math.floor(Math.random() * 3);
+  return randomNumber === 0
+    ? 'rock'
+    : randomNumber === 1
+    ? 'scissors'
+    : 'paper';
 }
 
-function getHumanChoice() {
-    let message = prompt("Choose one between rock, paper, scissors!").toLowerCase();
-    if (message === "rock" || message === "paper" || message === "scissors") {
-        return message;
-    } else {
-        return "Invalid input. Check your spelling!";
-    }
+// Track scores globally
+let humanScore = 0;
+let computerScore = 0;
+
+// Function to play a single round
+function playRound(humanChoice) {
+  const computerChoice = getComputerChoice();
+
+  if (humanChoice === computerChoice) {
+    result = `It's a tie! Both chose ${humanChoice}`;
+  } else if (
+    (humanChoice === 'rock' && computerChoice === 'scissors') ||
+    (humanChoice === 'scissors' && computerChoice === 'paper') ||
+    (humanChoice === 'paper' && computerChoice === 'rock')
+  ) {
+    humanScore++;
+    result = `You win! ${humanChoice} beats ${computerChoice}`;
+  } else {
+    computerScore++;
+    result = `You lose! ${computerChoice} beats ${humanChoice}`;
+  }
+
+  //   // Display results
+  //   console.log(result);
+  //   console.log(`Computer chose: ${computerChoice}`);
+  //   console.log(`Your score: ${humanScore}`);
+  //   console.log(`Computer score: ${computerScore}`);
+
+  playResult.innerHTML += `
+    <p>${result}</p>
+    <p>Computer chose: <strong>${computerChoice}</strong></p>
+    <p>Your score: <strong>${humanScore}</strong></p>
+    <p>Computer score: <strong>${computerScore}</strong></p>
+    <hr />
+  `;
+  playResultFinal.innerHTML += `
+  <p>Your Score: <strong>${humanScore}</strong></p>
+  <p>Computer Score: <strong>${computerScore}</strong></p>`;
 }
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
+// Selecting buttons from the DOM
+const rockButton = document.querySelector('.rock');
+const paperButton = document.querySelector('.paper');
+const scissorsButton = document.querySelector('.scissors');
 
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice === computerChoice) {
-            return `It's a tie! Both chose ${humanChoice}`;
-        } else if (
-            (humanChoice === "rock" && computerChoice === "scissors") ||
-            (humanChoice === "scissors" && computerChoice === "paper") ||
-            (humanChoice === "paper" && computerChoice === "rock")
-        ) {
-            humanScore++;
-            return `You win! ${humanChoice} beats ${computerChoice}`;
-        } else {
-            computerScore++;
-            return `You lose! ${computerChoice} beats ${humanChoice}`;
-        }
-    }
+// Adding event listeners to each button
+rockButton.addEventListener('click', () => playRound('rock'));
+paperButton.addEventListener('click', () => playRound('paper'));
+scissorsButton.addEventListener('click', () => playRound('scissors'));
 
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        if (humanSelection === "Invalid input. Check your spelling!") {
-            console.log(humanSelection);
-            i--; // Retry the round
-            continue;
-        }
-        const computerSelection = getComputerChoice();
-        console.log(playRound(humanSelection, computerSelection));
-        console.log(`Computer chose: ${computerSelection}`);
-        console.log(`Your score: ${humanScore}`);
-        console.log(`Computer score: ${computerScore}`);
-    }
-
-    if (humanScore > computerScore) {
-        console.log("Congratulations! You are the overall winner!");
-    } else if (humanScore < computerScore) {
-        console.log("Sorry, the computer wins this time!");
-    } else {
-        console.log("It's an overall tie!");
-    }
-}
-
-// Start the game
-playGame();
+// Selecting the div for the result
+const playResult = document.querySelector('.result');
+const playResultFinal = document.querySelector('.total');
